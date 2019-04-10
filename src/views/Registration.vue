@@ -1,56 +1,67 @@
 <template>
-  <div class="login">
+  <div class="registration valign-wrapper">
     <div class="container">
     <form class="row">
-      <div class="col-12">
-        <img src="">
+      <div class="col s12 l6 offset-l3 m6 offset-m3 card">
+        <!-- <img src=""> -->
+        
+        <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" @change="handleFileUpload()">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
 
-        <div class="form-group"> 
-          <label>Photo</label>
-        <input @change="handlePhotoUpload($event)" class="form-control" type="file"  placeholder="Picture (optional)">
+        
+        <div class="input-field">
+          <label for="name">Name of your business</label>
+          <input v-model="name" id="name" class="form-control" type="text" req>
         </div>
 
-        <div class="form-group">
-          <label>Name of your business</label>
-        <input v-model="name" class="form-control" type="text"  placeholder="Name of your business" req>
-        </div>
-
-        <div class="form-group">
-          <label>Description</label>
-          <input v-model="description" class="form-control" type="text"  placeholder="Description">
+        <div class="input-field">
+          <label for="description">Description</label>
+          <input v-model="description" id="description" class="form-control" type="text">
 
         </div>
         
-        <div class="form-group">
-          <label>Address</label>
-          <input v-model="address" class="form-control" type="text"  placeholder="Address">
+        <div class="input-field">
+          <label for="address"> Address</label>
+          <input v-model="address" id="address" class="form-control" type="text"  >
 
         </div>
 
-        <div class="form-group">
-          <label>Email</label>
-          <input v-model="email" class="form-control" type="email"  placeholder="Email">
+        <div class="input-field">
+          <label for="email">Email</label>
+          <input v-model="email" id="email" class="form-control" type="email">
 
         </div>
         
-        <div class="form-group">
-          <label>Password</label>
-          <input v-model="password" class="form-control" type="password" placeholder="Password">
+        <div class="input-field">
+          <label for="password">Password</label>
+          <input v-model="password" id="password" class="form-control" type="password">
 
         </div>
-        <div class="form-group">
-          <label>Confirm Password</label>
-          <input v-model="password" class="form-control" type="password" placeholder="Password">
+        <div class="input-field">
+          <label for ="password">Confirm Password</label>
+          <input v-model="password" id="password" class="form-control" type="password">
 
         </div>
 
-        <div class="form-group">
+        <div>
           <label>Trade licence</label>
+          <br>
+          <div class="file-field input-field">
+            <span class="btn">Upload </span>
           <input @change="handlePhotoUpload($event)" class="form-control" type="file"  placeholder="Trade licence">
+
+          </div>
         </div>
 
 
-        <button  class=" btn btn-primary ">Register</button>
+        <button @click="register"  class="btn btn-primary center-align col s4 offset-s4">Register</button>
       
       </div>
      
@@ -77,7 +88,8 @@ export default {
         password:'',
         confirmPassword:'',
         address:'',
-        message:''
+        message:'',
+        photo:null
     }
   },
   methods:{
@@ -104,7 +116,13 @@ export default {
         .catch(function(){
         console.log('FAILURE!!');
         });
+    },
+    register(e){
+        e.preventDefault();
     }
+  },
+  handlePhotoUpload(){
+    this.photo = this.$refs.file.files[0];
   }
 }
 </script>
@@ -117,6 +135,15 @@ export default {
 }
 input{
   margin: 4px;
+}
+.btn{
+  margin: 16px;
+}
+
+.registration{
+  background: url("../assets/balloons.jpg");
+  background-size:cover;
+  height: 100vh;
 }
 
 
