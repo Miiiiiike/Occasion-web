@@ -97,6 +97,8 @@ export default {
 .offer-container{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    margin-top: 80pt;
+
 
 }
     

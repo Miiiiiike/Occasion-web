@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div >
         <!-- <div id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
             <router-link to="/" class="navbar-brand">home</router-link>
              <router-link to="/registration" class="nav-item">Registation</router-link>
         </div> -->
             <div class="alert alert-danger " v-if="!offers">You have't posted any offers yet</div>
             <div class="row">
-                <div class="col offset-l2 ">
+                <div class="col offset-l2 offers-container">
                     
                     <div :key="offer.id" v-for="offer in offers"  class="col s12 m12 l3 ">
                     <div class="card darken-1  small">
@@ -104,6 +104,10 @@ export default {
     bottom:32px;
 }
 
+
+.offers-container{
+ margin-top: 60pt;
+}
 
 
 </style>

@@ -29,10 +29,11 @@ export default {
     padding: 0px;
 }
 
-.sidebar .nav{
+.sidebar ul{
     padding: 0px;
     margin-left: 0px;
     margin-right: 0px;
+    margin-top: 80px;
 }
 
 .sidebar ul li{
