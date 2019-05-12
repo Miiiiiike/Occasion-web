@@ -14,7 +14,7 @@
     
             <li><router-link to="/offers"> Offers</router-link></li> 
             <li><router-link to="/bookings"> Bookings</router-link></li> 
-            <li><router-link to="/ratings"> Ratings and reviews</router-link></li> 
+            <li><router-link to="/reviews"> Reviews</router-link></li> 
             <li><router-link to="/notifications"> Notifications</router-link></li> 
             <li><router-link to="/deliveries"> Deliveries</router-link></li> 
         </ul>
@@ -28,6 +28,7 @@ export default {
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems, {});
+
         });
         
     }
@@ -43,7 +44,6 @@ export default {
 
 a, a:hover, a:visited{
     text-decoration: none;
-    
 }
 
 </style>

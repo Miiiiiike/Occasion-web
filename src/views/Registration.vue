@@ -45,8 +45,14 @@
 
         </div>
         <div class="input-field">
-          <label for ="password">Confirm Password</label>
-          <input v-model="password" id="password" class="form-control" type="password">
+          <label for ="confirm_password">Confirm Password</label>
+          <input v-model="password2" id="confirm_password" class="form-control" type="password">
+
+        </div>
+
+ <div class="input-field">
+          <label for ="phonenumber">Phonenumber</label>
+          <input v-model="phonenumber" id="phonenumber" class="form-control" type="text">
 
         </div>
 
@@ -74,6 +80,8 @@
 
 <script>
 import axios from 'axios';
+const config = require ('../config.js');
+
 export default {
   name: 'Registration',
   components: {
@@ -86,10 +94,11 @@ export default {
         description:'',
         email:'',
         password:'',
+        password2:'',
+        phonenumber:'',
         confirmPassword:'',
         address:'',
         message:'',
-        photo:null
     }
   },
   methods:{
@@ -119,6 +128,24 @@ export default {
     },
     register(e){
         e.preventDefault();
+        axios.post(`${config.BACKEND_SERVER_IP}/serviceproviders/request`,
+        {name:this.name,
+        description:this.description,
+        email:this.email,
+        password:this.password,
+        phonenumber:this.phonenumber,  
+        address:this.address})
+        .then((response)=>{
+          console.log(response.data.token);
+          localStorage.setItem('token',response.data.token);
+          this.$router.push('/login')
+        })
+        .catch((err)=>{
+          if(err){
+            this.message = err.message
+          }
+          console.log(err)
+        })
     }
   },
   handlePhotoUpload(){

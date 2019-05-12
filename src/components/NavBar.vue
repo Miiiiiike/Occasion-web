@@ -1,6 +1,6 @@
 <template>
     <nav class="nav-extended ">
-    <div class="nav-wrapper blue">
+    <div class="nav-wrapper ">
       <a href="#" class="brand-logo center">Occasion</a>
         <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only"><i class="material-icons">menu</i></a>
       <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -22,6 +22,10 @@ export default {
 <style scoped>
 nav{
   position: fixed;
-  z-index: 1;
+  z-index: 2;
+}
+
+.nav-wrapper{
+  background: #3f1052;
 }
 </style>

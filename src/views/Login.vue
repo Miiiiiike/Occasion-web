@@ -65,13 +65,14 @@ export default {
       }
       axios.post(`${config.BACKEND_SERVER_IP}/login?role=ServiceProvider`,loginInfo)
       .then((response)=>{
-        console.log(response.data.token);
-        localStorage.setItem('token',response.data.token);
-        this.$router.push('/offers')
+        	console.log(response.data.token);
+        	localStorage.setItem('token',response.data.token);
+		this.$router.push('/offers')
       })
       .catch((err)=>{
         if(err){
-          this.message = err.message
+	    this.message = err.response.data.message
+	    
         }
         console.log(err)
       })
@@ -105,7 +106,7 @@ input[type=email]{
   margin: 16px;
 }
 .login{
-  background: url("../assets/login-bg.jpg");
+  background: url('../assets/bg_gradient2.png');
   background-size:cover;
 }
 
